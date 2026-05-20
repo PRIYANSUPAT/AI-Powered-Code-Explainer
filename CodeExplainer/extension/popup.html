@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodeExplainer | AI AI</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body class="nebula-theme">
+    <div class="glow-overlay"></div>
+    <div class="main-container">
+        <div class="header">
+            <div class="brand">
+                <span class="logo-node">{ }</span>
+                <h1>CodeExplainer <span>PRO</span></h1>
+            </div>
+            <div class="status-badge">● ONLINE</div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="explain">EXPLAIN</button>
+            <button class="tab-btn" data-tab="refactor">REFACTOR</button>
+            <button class="tab-btn" data-tab="codebase">CODEBASE</button>
+        </div>
+
+        <div class="content-panel">
+            <div class="input-row">
+                <div class="field-meta">SELECTED LANGUAGE</div>
+                <select id="language-select">
+                    <option value="English">ENGLISH</option>
+                    <option value="Hinglish">HINGLISH</option>
+                    <option value="Hindi">HINDI</option>
+                    <option value="Spanish">SPANISH</option>
+                </select>
+            </div>
+
+            <div id="code-input-section" class="module">
+                <div class="module-header">&gt;_ SOURCE_INPUT</div>
+                <textarea id="code-input" placeholder="Wating for sequence input..."></textarea>
+                <button id="action-btn" class="cyber-btn">EXECUTE ANALYSIS</button>
+            </div>
+
+            <div id="codebase-input-section" class="module" style="display: none;">
+                <div class="module-header">&gt;_ DIRECTORY_PATH</div>
+                <input type="text" id="repo-path" placeholder="Enter absolute volume path..." />
+                <button id="analyze-repo-btn" class="cyber-btn">INDEX CODEBASE</button>
+            </div>
+
+            <div id="loader" class="loader" style="display: none;">[ CORE ANALYZING... ]</div>
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
