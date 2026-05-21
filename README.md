@@ -117,3 +117,24 @@ python app.py
 | `/codebase` | `POST` | `{repo_path, language}`| Analyzes an entire repository using RAG. |
 
 ---
+
+```mermaid
+graph TD
+    User((Developer)) -- "Selected Code" --> Ext["Chrome Extension\n(UI/Manifest V3)"]
+    
+    subgraph "FastAPI Intelligence Layer"
+        Ext -- "POST /analyze" --> API["FastAPI Endpoint"]
+        API -- "Query String" --> RAG["RAG Service\n(Logic Engine)"]
+    end
+    
+    subgraph "External Providers"
+        RAG -- "Vector Search" --> VDB[("ChromaDB\n(Vector Store)")]
+        VDB -- "Context Docs" --> RAG
+        RAG -- "Prompt + Context" --> LLM[("Groq API\n(Llama 3.1)")]
+        LLM -- "Markdown/JSON" --> RAG
+    end
+    
+    RAG -- "Processed Result" --> API
+    API -- "JSON Response" --> Ext
+    Ext -- "Displays Result" --> User
+```
